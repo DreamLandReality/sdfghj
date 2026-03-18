@@ -1,0 +1,82 @@
+---
+export interface Props {
+  data: {
+    eyebrow?: string;
+    heading?: string;
+    body?: string;
+    buttonText?: string;
+    brochureFile?: string;
+    backgroundImage?: string;
+    backgroundImageAlt?: string;
+  };
+}
+
+const { data } = Astro.props;
+const imgSrc = (path: string) => path?.startsWith('http') ? path : `/${path}`;
+---
+
+<section class="py-0 bg-background" data-dr-section="brochure">
+  <div class="flex flex-col lg:flex-row">
+
+    <!-- Image Side -->
+    <div class="w-full lg:w-1/2 min-h-[560px] relative overflow-hidden group">
+      <img
+        src={imgSrc(data.backgroundImage || 'defaults/default-secondary.jpg')}
+        alt={data.backgroundImageAlt || ''}
+        class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
+        data-dr-field="backgroundImage"
+      />
+      <!-- Subtle dark overlay -->
+      <div class="absolute inset-0 bg-black/20 pointer-events-none"></div>
+    </div>
+
+    <!-- Content Side -->
+    <div class="w-full lg:w-1/2 flex items-center justify-center p-12 md:p-24 bg-surface">
+      <div class="max-w-md">
+
+        {data.eyebrow && (
+          <p
+            class="text-[9px] tracking-[0.45em] uppercase text-gold mb-6"
+            data-dr-field="eyebrow"
+          >
+            {data.eyebrow}
+          </p>
+        )}
+
+        {data.heading && (
+          <h2
+            class="font-serif text-4xl md:text-5xl text-primary font-light mb-6"
+            data-dr-field="heading"
+          >
+            {data.heading}
+          </h2>
+        )}
+
+        <div class="w-8 h-px bg-gold/50 mb-8"></div>
+
+        {data.body && (
+          <p
+            class="text-primary/40 mb-10 leading-relaxed font-light text-sm"
+            data-dr-field="body"
+          >
+            {data.body}
+          </p>
+        )}
+
+        <a
+          href={data.brochureFile || '#'}
+          download={!!data.brochureFile}
+          class="inline-flex items-center gap-4 text-[10px] font-medium tracking-[0.3em] uppercase text-primary border-b border-white/20 pb-2 hover:text-gold hover:border-gold transition-colors duration-300"
+          data-dr-field="buttonText"
+        >
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+          </svg>
+          {data.buttonText || 'Download PDF'}
+        </a>
+
+      </div>
+    </div>
+
+  </div>
+</section>
