@@ -112,7 +112,10 @@
         "headline": "Chamage",
         "heroType": "carousel",
         "overline": "Luxury Residences",
-        "backgroundImage": "https://pub-da5fe52c12854625bef20ed173f635f1.r2.dev/templates/noir-luxury/defaults/default-hero.jpg"
+        "mobileLayout": "fullscreen",
+        "overlayEnabled": true,
+        "backgroundImage": "https://pub-da5fe52c12854625bef20ed173f635f1.r2.dev/templates/noir-luxury/defaults/default-hero.jpg",
+        "overlayIntensity": "medium"
       },
       "name": "Hero Section",
       "schema": {
@@ -656,12 +659,13 @@
         "eyebrow": "Pricing",
         "heading": "Exclusive Pricing",
         "siteToken": "30bbc481-2f16-4bba-bc54-d1577ed9700b",
+        "priceLabel": "Starting From",
         "successNote": "Our private advisory team has received your request and will contact you shortly with the full brochure and tailored payment plans.",
         "brochureFile": "https://pub-da5fe52c12854625bef20ed173f635f1.r2.dev/sites/sdfghj/price-unlock/brochureFile.pdf",
         "modalEyebrow": "Exclusive Access",
         "modalHeading": "Unlock Pricing",
         "modalSubtext": "Provide your details to instantly reveal exclusive pricing, payment plans, and comprehensive floor layouts.",
-        "previewState": "unlocked",
+        "previewState": "locked",
         "brochureEyebrow": "Property Brochure",
         "modalSubmitText": "Reveal Price",
         "unlockButtonText": "Unlock Price",
